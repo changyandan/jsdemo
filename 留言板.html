@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <style type="text/css">
+        #box{width:500px;height: 300px;border:1px solid #000;padding:10px;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            // 首先，box里创建ul
+            // 点击发送后，插入li  ul.appendChild();  
+            // 鼠标滑过li 变色
+            // 有删除字样 点击可删除 
+            // 每个li有序号
+            // 删除后序号重新排列
+            // 文本框输入内容为空，提示请输入内容
+            // 发送后，清空文本框
+            var obox=document.getElementById("box");
+            var ainp=document.getElementsByTagName('input');
+            var ul=document.createElement('ul');
+            obox.appendChild(ul);
+            var num=0;
+
+            ainp[1].onclick=function(){
+                var li=document.createElement('li');
+                ul.appendChild(li);
+                // var a=document.createElement('a');
+                // a.innerHTML='<a href="#">删除</a>';
+                // li.appendChild(a);
+                if(ainp[0].value==''){
+                    alert("请输入内容");
+                    ul.removeChild(li);
+                }
+                else{
+                    num++;
+                    li.innerHTML=num+'---'+ainp[0].value+'当前第'+num+'条'+'<a href="javascript:;">删除</a>';
+                     // li.innerHTML=num+'---'+ainp[0].value+a;
+                    ainp[0].value='';
+                }
+                var a=li.children[0];
+                a.onclick=function(){
+                    ul.removeChild(this.parentNode);
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+   <div id="box"></div>
+   <input type="text"> <input type="button" value="发送">
+</body>
+</html>
+
+<!-- 本月要完成的任务：
+1、蛋打防疫针 （我）
+2、蛋体检 （我）
+3、回家学校的安排 （共同）
+4、回老家防疫本的转出 （我）
+5、回家后的各种安排 （共同）
+6、一打防疫针，过生日 （共同）
+7、郑州户口房子的事情 （共同）
+8、学习找工作 （我）
+9、工作 （你）
+10、车保养 保险 （你）
+11、幼儿园退费 （我） -->

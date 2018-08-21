@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    for (var i = 0; i < 10; i++) {
+        console.log(Math.round(Math.random() * 100));
+    }
+    var arr = [3, 7, 8, 9, 1.2, 4.5];
+    arr.sort(function(a, b) {
+        return a - b;
+    })
+    console.log(arr);
+
+    function getRandomColor() {
+
+        // return body.style.background-color=''#' + Math.floor(Math.random() * 16777215).toString(16)';
+
+    }
+
+        window.onload=function(){
+        	var cbox=document.getElementsByClassName('box');
+        	for(var i=0;i<cbox.length;i++){
+        		console.log(i);
+        		cbox[i].onmouseover=function(){
+        			this.style.fontSize=30+'px';
+        			this.style.color='red';
+        			this.style.background='#'+Math.floor(Math.random() * 16777215).toString(16);
+        		}
+        	}
+        }
+    </script>
+
+    <div class="box" style="width: 100px;height: 100px;border:1px solid #000">dfdfd</div>
+    <div class="box" style="width: 100px;height: 100px;border:1px solid #000">dfdfd</div>
+    <div class="box" style="width: 100px;height: 100px;border:1px solid #000">dfdfd</div>
+    <div class="box" style="width: 100px;height: 100px;border:1px solid #000">dfdfd</div>
+</body>
+
+</html>

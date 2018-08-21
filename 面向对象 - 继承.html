@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象--继承</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            function CreatePerson(name,sex){
+                this.name=name;
+                this.sex=sex;
+            }
+            CreatePerson.prototype.showName=function(){
+                alert(this.name);
+            }
+            var p1=new CreatePerson("小明","男");
+            p1.showName();
+
+            extand(CreateStar.prototype,CreatePerson.prototype);
+            function CreateStar(name,sex,job){
+                CreatePerson.call(this,name,sex);
+                this.job=job;
+            }
+            CreateStar.prototype.showJob=function(){
+                alert(this.job);
+            }
+            var p2=new CreateStar("黄小明","男","演员");
+            p2.showName();
+            
+            function extand(obj1,obj2){
+                for(var attr in obj2){
+                    obj1[attr]=obj2[attr];
+                }
+            }
+            
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

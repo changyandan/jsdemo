@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var odate=new Date();
+            odate.setDate(odate.getDate()+5);
+            document.cookie='username=changyandan;expires='+odate.toGMTString();
+            alert(document.cookie);
+        }
+    </script>
+</head>
+
+<body>
+    
+</body>
+
+</html>

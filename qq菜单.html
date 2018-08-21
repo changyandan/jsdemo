@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>qq菜单</title>
+	<style type="text/css">
+		h2.on{color: red}
+		ul{display: none;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var atitle=document.getElementsByTagName('h2');
+			var aul=document.getElementsByTagName('ul');
+			for(var i=0;i<atitle.length;i++){
+				atitle[i].index=i;
+				atitle[i].onclick=function(){
+					     if(aul[this.index].style.display=='block'){
+					     	aul[this.index].style.display='none';
+					     	this.className='';
+					     	return;
+					     }
+						 for(var i=0;i<atitle.length;i++){
+						 	if(this.className==''){
+						 		aul[this.index].style.display='block'; 
+		                        this.className='on';
+						 	}
+						 	else{
+								aul[this.index].style.display='none'; 
+								this.className='';
+						   }
+						    atitle[i].className='';
+						 	aul[i].style.display='none'; 
+						 }
+						 aul[this.index].style.display='block'; 
+						 this.className='on';
+				}
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h2>模块一</h2>
+	<ul>
+		<li>模块一内容</li>
+		<li>模块一内容</li>
+		<li>模块一内容</li>
+	</ul>
+	<h2>模块二</h2>
+	<ul>
+		<li>模块二内容</li>
+		<li>模块二内容</li>
+		<li>模块二内容</li>
+	</ul>
+	<h2>模块三</h2>
+	<ul>
+		<li>模块三内容</li>
+		<li>模块三内容</li>
+		<li>模块三内容</li>
+	</ul>
+</body>
+
+</html>

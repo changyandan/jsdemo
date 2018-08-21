@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>localstorage</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var olist=document.getElementById("list");
+            var oinput=document.getElementsByTagName('input')[0];
+            var cdata=[];
+            if(localStorage.getItem('cyd')){
+                cdata=localStorage.getItem('cyd').split(',');
+                show();
+            }
+            function show(){
+                var html='';
+                for(var i=0;i<cdata.length;i++){
+                    html +='<li>'+cdata[i]+'</li>';
+                }
+                olist.innerHTML=html;
+            }
+            function add(){
+                cdata.push("123");
+                show();
+                localStorage.setItem('cyd',cdata);
+            }
+            oinput.onclick=function(){
+                add();
+            }
+        }
+    </script>
+    
+</head>
+
+<body>
+    <input type="button" name="" value="点击添加">
+    <ul id='list'></ul>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>拖放</title>
+    <style type="text/css">
+    *{padding:0;margin:0;}
+        #box{width: 200px;height: 200px;background: red;position: absolute;left: 20px;top:20px;}
+        #box1{width: 200px;height: 200px;background: red;position: absolute;left: 200px;top:20px;}
+    }
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            var obox=document.getElementById('box');
+            var disx=0;
+            var disy=0;
+            function drag(obj){
+                    obj.onmousedown=function(ev){
+                    var ev=ev || window.event;
+                    disx=ev.clientX-this.offsetLeft;
+                    console.log(ev.clientX);
+                    console.log(this.offsetLeft);
+                    console.log(disx);
+                    disy=ev.clientY-this.offsetTop;
+                    document.onmousemove=function(ev){
+                        var ev=ev||window.event;
+                        obj.style.left=ev.clientX-disx+'px';
+                        console.log(obj.style.left);
+                        obj.style.top=ev.clientY-disy+'px';
+                    };
+                    document.onmouseup=function(){
+                        document.onmousemove=null;
+                        document.onmouseup=null;
+                    };
+                    return false;
+                }
+            }
+            drag(obox);
+        }
+    </script>
+</head>
+
+<body>
+    <div draggable='true' id="box"></div>
+</body>
+
+</html>

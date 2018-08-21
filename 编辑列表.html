@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>编辑商品</title>
+	<style type="text/css">
+		.exitbox{display: none;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oul=document.getElementById("list");
+			var ali=oul.getElementsByTagName("li");
+			for(var i=0;i<ali.length;i++){
+				exitFn(ali[i]);
+			}
+			function exitFn(el){
+				var aLink=el.getElementsByTagName("a");
+				var oinput=el.getElementsByTagName('input')[0];
+				var ospan=el.getElementsByTagName("span")[0];
+				var oexit=el.getElementsByClassName('exitbox');
+				aLink[0].onclick=function(){
+					oexit[0].style.display='block';
+					oinput.value=ospan.innerHTML;
+				}
+				aLink[1].onclick=function(){
+					oexit[0].style.display='none';
+					ospan.innerHTML=oinput.value;
+					oinput.value='';
+				}
+				aLink[2].onclick=function(){
+					oexit[0].style.display='none';
+					oinput.value=ospan.innerHTML;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li>
+			<span>aaaaa</span><a href="#;">编辑</a>
+			<div class="exitbox">
+				<input type="text">
+				<a href="#;">保存</a>
+				<a href="#;">取消</a>
+			</div>
+		</li>
+		<li>
+			<span>bbbb</span><a href="#;">编辑</a>
+			<div class="exitbox">
+				<input type="text">
+				<a href="#;">保存</a>
+				<a href="#;">取消</a>
+			</div>
+		</li>
+		<li>
+			<span>ccc</span><a href="#;">编辑</a>
+			<div class="exitbox">
+				<input type="text">
+				<a href="#;">保存</a>
+				<a href="#;">取消</a>
+			</div>
+		</li>
+	</ul>
+</body>
+</html>

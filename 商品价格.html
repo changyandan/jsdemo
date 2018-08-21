@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>商品价格</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oul=document.getElementById('list');
+			var ali=oul.getElementsByTagName('li');
+
+			var p=document.getElementsByTagName('p')[0];
+			var pspan=p.getElementsByTagName('span')[0];
+
+			var aem=oul.getElementsByTagName('em');
+
+			function total(){
+				var total=0;
+				for(var i=0;i<aem.length;i++){
+					total+=parseFloat(aem[i].innerHTML);
+					pspan.innerHTML=total.toFixed(2);
+				}
+				
+			}
+
+			for(var i=0;i<ali.length;i++){
+				price(ali[i]);
+			}
+			function price(el){
+				var ainp=el.getElementsByTagName('input');
+				var ostrong=el.getElementsByTagName('strong')[0];
+				var ospan=el.getElementsByTagName('span')[0];
+				var oem=el.getElementsByTagName('em')[0];
+
+				ainp[1].onclick=function(){
+					var num=Number(ostrong.innerHTML);
+					num++;
+					ostrong.innerHTML=num;
+					oem.innerHTML=(parseFloat(ostrong.innerHTML*ospan.innerHTML)).toFixed(2)+'元';
+					total();
+					
+				}
+				ainp[0].onclick=function(){
+					var num=Number(ostrong.innerHTML);
+					num--;
+					if(num<0){
+						num=0;
+						return;
+					}
+					ostrong.innerHTML=num;
+					oem.innerHTML=(parseFloat(ostrong.innerHTML*ospan.innerHTML)).toFixed(2)+'元';
+					total();
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li>
+			<input type="button" value="-">
+			<strong>0</strong>
+			<input type="button" value="+">
+			单价:<span>10</span>
+			合计：<em>0</em>
+		</li>
+		<li>
+			<input type="button" value="-">
+			<strong>0</strong>
+			<input type="button" value="+">
+			单价:<span>5.2</span>
+			合计：<em>0</em>
+		</li>
+		<li>
+			<input type="button" value="-">
+			<strong>0</strong>
+			<input type="button" value="+">
+			单价:<span>2.2</span>
+			合计：<em>0</em>
+		</li>
+	</ul>
+	<p>合计：<span>0元</span></p>
+</body>
+</html>
